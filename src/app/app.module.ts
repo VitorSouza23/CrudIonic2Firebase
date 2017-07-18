@@ -8,6 +8,9 @@ import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 
 import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {ListaCarroPage} from '../pages/lista-carro/lista-carro';
+import {EditarCarroPage} from '../pages/editar-carro/editar-carro';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBBlveDOoqWZ5ntMWF4oQk4CyE75hb17BQ",
@@ -21,17 +24,22 @@ export const firebaseConfig = {
 @NgModule({
     declarations: [
         MyApp,
-        HomePage
+        HomePage,
+        ListaCarroPage,
+        EditarCarroPage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
-        AngularFireModule.initializeApp(firebaseConfig)
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireDatabaseModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage
+        HomePage,
+        ListaCarroPage,
+        EditarCarroPage
     ],
     providers: [
         StatusBar,
