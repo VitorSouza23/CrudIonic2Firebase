@@ -24,7 +24,6 @@ export class EditarCarroPage {
         this.ref = this.agularFire.object('/carros/' + this.id);
         this.carro = new Carro();
         this.ref.subscribe((carro) => {
-            this.carro.id = carro.$key;
             this.carro.dono = carro.dono;
             this.carro.modelo = carro.modelo;
             this.carro.multa = carro.multa;
@@ -38,6 +37,11 @@ export class EditarCarroPage {
     }
     
     fechar() : void {
+        this.viewCtrl.dismiss();
+    }
+    
+    excluir() : void {
+        this.ref.remove();
         this.viewCtrl.dismiss();
     }
 

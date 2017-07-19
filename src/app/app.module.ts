@@ -8,6 +8,8 @@ import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 
 import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireAuth} from 'angularfire2/auth';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {ListaCarroPage} from '../pages/lista-carro/lista-carro';
 import {EditarCarroPage} from '../pages/editar-carro/editar-carro';
@@ -32,7 +34,8 @@ export const firebaseConfig = {
         BrowserModule,
         IonicModule.forRoot(MyApp),
         AngularFireModule.initializeApp(firebaseConfig),
-        AngularFireDatabaseModule
+        AngularFireDatabaseModule,
+        AngularFireAuthModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -44,7 +47,8 @@ export const firebaseConfig = {
     providers: [
         StatusBar,
         SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        AngularFireAuth
     ]
 })
 export class AppModule {}

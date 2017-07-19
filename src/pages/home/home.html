@@ -1,15 +1,23 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Início
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Início
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  Bem vindo ao Controle de Carros.
-  <p>
-    Em breve novas funções!
-  </p>
-  <button ion-button full (click)="goToListaCarroPage()">Lista de Carros</button>
+    Bem vindo ao Controle de Carros.
+    <button ion-button full (click)="login()" *ngIf="user == undefined">Login</button>
+    <ion-card *ngIf="user != undefined">
+        <ion-item>
+            <ion-avatar item-start>
+                <img [src]="user.photoURL">
+            </ion-avatar>
+            <h2>{{user.displayName}}</h2>
+            <p>{{user.email}}</p>
+        </ion-item>
+    </ion-card>
+    <button ion-button full color="danger"(click)="logout()" *ngIf="user != undefined">Sair</button>
+    <button ion-button full color="secondary"(click)="goToListaCarroPage()" *ngIf="user != undefined">Lista de Carros</button>
 </ion-content>
